@@ -3,16 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <title>E-commerce Recommender</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>E-commerce Product Recommendation System</h1>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">ShopSmart</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Deals</a>
+        <a href="#">Account</a>
+      </nav>
+    </div>
+  </header>
 
-  <label>User ID:</label>
-  <input id="userId" type="text" />
-  <button onclick="getRecommendations()">Get Recommendations</button>
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h2>Personalized product picks</h2>
+        <p>Enter your user ID to see products picked just for you based on your past activity.</p>
+        <form id="reco-form">
+          <label for="user-id">User ID</label>
+          <div class="input-row">
+            <input id="user-id" type="text" placeholder="e.g. AZYNQZ94U6VDB" />
+            <button type="submit">Get recommendations</button>
+          </div>
+        </form>
+        <p id="status" class="status"></p>
+      </div>
+      <img class="hero-img" src="https://via.placeholder.com/420x260?text=Your+Store" alt="Store illustration">
+    </section>
 
-  <h2>Recommendations</h2>
-  <ul id="results"></ul>
+    <section class="reco-section">
+      <div class="reco-header">
+        <h3>Recommended for you</h3>
+        <span id="user-label"></span>
+      </div>
+      <div id="reco-grid" class="reco-grid">
+        <!-- JS will insert product cards here -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 ShopSmart · Powered by your recommendation model</p>
+    </div>
+  </footer>
 
   <script src="main.js"></script>
 </body>

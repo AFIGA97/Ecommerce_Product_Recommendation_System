@@ -1,8 +1,18 @@
-// Very simple mock recommendations
-const mockData = {
-  "user1": ["itemA", "itemB", "itemC"],
-  "user2": ["itemD", "itemE"],
-};
+const fs = require('fs');
+const path = require('path');
+
+// Path to the JSON file with real recommendations
+const recosPath = path.join(__dirname, '..', '..', 'data', 'user_recos.json');
+
+let userRecos = {};
+
+try {
+  const raw = fs.readFileSync(recosPath, 'utf-8');
+  userRecos = JSON.parse(raw);
+  console.log('Loaded user_recos.json with', Object.keys(userRecos).length, 'users');
+} catch (e) {
+  console.error('Could not load user_recos.json', e);
+}
 
 exports.handler = async (event, context) => {
   const userId = event.queryStringParameters.user_id;
@@ -14,7 +24,7 @@ exports.handler = async (event, context) => {
     };
   }
 
-  const products = mockData[userId] || [];
+  const products = userRecos[userId] || [];
 
   return {
     statusCode: 200,

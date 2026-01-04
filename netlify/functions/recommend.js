@@ -1,18 +1,4 @@
-const fs = require('fs');
-const path = require('path');
-
-// Path to the JSON file with real recommendations
-const recosPath = path.join(__dirname, '..', '..', 'data', 'user_recos.json');
-
-let userRecos = {};
-
-try {
-  const raw = fs.readFileSync(recosPath, 'utf-8');
-  userRecos = JSON.parse(raw);
-  console.log('Loaded user_recos.json with', Object.keys(userRecos).length, 'users');
-} catch (e) {
-  console.error('Could not load user_recos.json', e);
-}
+const userRecos = require('../../data/user_recos.json');
 
 exports.handler = async (event, context) => {
   const userId = event.queryStringParameters.user_id;

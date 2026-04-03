@@ -1,4 +1,4 @@
-# Ecommerce Product Recommender
+# Ecommerce Product Recommendation System
 
 This is a small learning project that demonstrates a simple ecommerce product recommendation web app, deployed on Netlify.  
 It uses a static frontend with a serverless function that returns product recommendations from a JSON file.
